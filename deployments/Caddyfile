@@ -1,0 +1,30 @@
+:9090 {
+    log
+    encode gzip
+
+    handle_path /authenticator-admin/* {
+        reverse_proxy * authenticator-admin:8081
+    }
+
+    handle_path /authenticator-user/* {
+        reverse_proxy * authenticator-user:8081
+    }
+
+    respond 404
+}
+
+core.phuocnn.tech  {
+    tls /certs/phuocnn.tech.pem /certs/phuocnn.tech.key
+
+    header {
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Credentials false
+        Access-Control-Allow-Methods *
+        Access-Control-Allow-Headers *
+        defer
+    }
+
+    handle_path /gateway/* {
+        reverse_proxy * http://localhost:9090
+    }
+}

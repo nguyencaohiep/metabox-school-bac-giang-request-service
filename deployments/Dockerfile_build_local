@@ -1,0 +1,14 @@
+FROM alpine:latest
+
+WORKDIR /opt/service-authenticator
+
+ENV ADDR_GRAPH 0.0.0.0:8081
+
+COPY ./gift .
+COPY ./configs/.env .
+
+RUN apk update && apk add libc6-compat && apk add gcompat
+
+RUN chmod +x ./gift
+
+CMD ./gift --configSource=.env serve --addr-graph=$ADDR_GRAPH

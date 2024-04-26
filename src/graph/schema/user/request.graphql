@@ -1,0 +1,15 @@
+extend type Query {
+  requestPagination(
+    page: Int!
+    limit: Int!
+    order_by: String
+    search: Map
+  ): RequestPagination! @requiredAuthUser
+  requestMe: RequestPagination! @requiredAuthUser
+}
+
+extend type Mutation {
+  requestAdd(data: RequestAdd!): Request! @requiredAuthUser
+  requestUpdate(data: RequestUpdate!): Request! @requiredAuthUser
+  requestDelete(data: RequestDelete!): Request! @requiredAuthUser
+}

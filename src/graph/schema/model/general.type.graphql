@@ -1,0 +1,33 @@
+# ---------- Directive ----------
+directive @requiredAuthAdmin(
+  action: [String]
+  action_admin: String
+  check_ip: Boolean
+) on FIELD_DEFINITION
+directive @requiredAuthSuperUser(action: String) on FIELD_DEFINITION
+directive @requiredAuthUser(action: String) on FIELD_DEFINITION
+directive @goField(
+  forceResolver: Boolean
+  name: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+# ---------- Scalar ---------
+scalar Time
+scalar Map
+scalar Any
+# ---------- Model ----------
+type DefaultResponse {
+  status: Int!
+  message: String!
+  data: Any!
+}
+
+type Pagination {
+  current_page: Int!
+  limit: Int!
+  total_page: Int!
+  total: Int!
+}
+
+extend type Account @key(fields: "user_name") {
+  user_name: String! @external
+}

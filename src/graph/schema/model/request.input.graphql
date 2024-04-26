@@ -1,0 +1,17 @@
+input RequestAdd {
+  username: String!
+
+  note: String!
+  phone: String!
+}
+
+input RequestDelete {
+  request_id: String!
+}
+
+input RequestUpdate {
+  request_id: String!
+
+  note: String
+  phone: String
+}

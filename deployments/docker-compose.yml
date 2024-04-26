@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  gift:
+    image: registry.ctisoftware.vn/outsource/gift:1.0.0
+    container_name: gift
+    restart: unless-stopped
+    expose:
+      - "8081:8081"
+    environment:
+      ADDR_GRAPH: 0.0.0.0:8081
+      GIFT_SERVICENAME: admin
+      GIFT_JWTTOKEN: "123456"
+      GIFT_ENABLESIGNUP: "true"
+      GIFT_MONGOURL: mongodb://CTIGroup:CTIGroup%4001092022@mongo:27017/?authSource=admin
+      GIFT_DATABASENAME: gift
+    depends_on:
+      - mongo
+
+  gift-mongo:
+    image: mongo:latest
+    container_name: gift-mongo
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=CTIGroup
+      - MONGO_INITDB_ROOT_PASSWORD=CTIGroup@01092022
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb:/data/db
+
+
+volumes:
+  mongodb:
+
+networks:
+  caddy_network:
+    name: caddy_network
+    driver: bridge
