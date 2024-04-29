@@ -509,7 +509,7 @@ type RequestPagination {
 }
 
 extend type Mutation {
-  requestAdd(data: RequestAdd!): Request! @requiredAuthUser
+  requestAdd(data: RequestAdd!): Request!
   requestUpdate(data: RequestUpdate!): Request! @requiredAuthUser
   requestDelete(data: RequestDelete!): Request! @requiredAuthUser
 }
@@ -950,28 +950,8 @@ func (ec *executionContext) _Mutation_requestAdd(ctx context.Context, field grap
 		}
 	}()
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		directive0 := func(rctx context.Context) (interface{}, error) {
-			ctx = rctx // use context from middleware stack in children
-			return ec.resolvers.Mutation().RequestAdd(rctx, fc.Args["data"].(graph_model.RequestAdd))
-		}
-		directive1 := func(ctx context.Context) (interface{}, error) {
-			if ec.directives.RequiredAuthUser == nil {
-				return nil, errors.New("directive requiredAuthUser is not implemented")
-			}
-			return ec.directives.RequiredAuthUser(ctx, nil, directive0, nil)
-		}
-
-		tmp, err := directive1(rctx)
-		if err != nil {
-			return nil, graphql.ErrorOnPath(ctx, err)
-		}
-		if tmp == nil {
-			return nil, nil
-		}
-		if data, ok := tmp.(*graph_model.Request); ok {
-			return data, nil
-		}
-		return nil, fmt.Errorf(`unexpected type %T from directive, should be *metabox-school-bac-giang-request-service/src/graph/generated/model.Request`, tmp)
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().RequestAdd(rctx, fc.Args["data"].(graph_model.RequestAdd))
 	})
 	if err != nil {
 		ec.Error(ctx, err)

@@ -36,8 +36,6 @@ github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyua
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe h1:iruDEfMl2E6fbMZ9s0scYfZQ84/6SPL6zC8ACM2oIL0=
 github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
-github.com/nguyencaohiep/metabox-school-proto v0.0.0-20240422090855-dd9ead729b44 h1:GRyzLX1DQOznfwcmYqJUO5CxjQ9PNvbVHJnmqrHAMmM=
-github.com/nguyencaohiep/metabox-school-proto v0.0.0-20240422090855-dd9ead729b44/go.mod h1:Aa/UuVaTEJ74aOrIh8CJQFLhJMvRtuyxZsbZ7xGNLjQ=
 github.com/nguyencaohiep/metabox-school-proto v0.0.0-20240426083234-3ef2eb0a4cca h1:k5BKJBvOLxcDMk8RJx8OpgcbRPPPnSSsTJFxZFJHYK0=
 github.com/nguyencaohiep/metabox-school-proto v0.0.0-20240426083234-3ef2eb0a4cca/go.mod h1:Aa/UuVaTEJ74aOrIh8CJQFLhJMvRtuyxZsbZ7xGNLjQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

@@ -9,7 +9,7 @@ extend type Query {
 }
 
 extend type Mutation {
-  requestAdd(data: RequestAdd!): Request! @requiredAuthUser
+  requestAdd(data: RequestAdd!): Request!
   requestUpdate(data: RequestUpdate!): Request! @requiredAuthUser
   requestDelete(data: RequestDelete!): Request! @requiredAuthUser
 }
